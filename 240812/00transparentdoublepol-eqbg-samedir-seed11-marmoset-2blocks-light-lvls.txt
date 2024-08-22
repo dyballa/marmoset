@@ -1,0 +1,90 @@
+FlowStims 2.2 #version information - branch transpflow
+
+# Use this file to set the parameters for the flow movies
+
+# INSTRUCTIONS:
+# Any text after a '#' is ignored (comments)
+
+# The format for entering values is: "parameter"<space>"value"
+# For entering multiple values: "parameter"<space>"value1"<space>"value2" etc.
+
+# An arrow "->" before a parameter name means it is dependent on the preceding param without an arrow (the "parent" parameter). The number of values entered for it must equal that of its parent.
+
+# Specific parameter instructions are given as comments below. 
+
+
+###SETUP###
+scrWidthPx 2560 #screen resolution - width, in pixels
+scrHeightPx 1440 #screen resolution - height, in pixels
+scrWidthCm 59.6 #Physical width of screen (cm)
+scrDistCm 64.25 #Distance from screen (cm)
+monitor 1 #Selects the screen to display to program on (default is 1)
+fullScreen 0 #If set to 0, disables fullscreen mode (for running it in a smaller window)
+fastRendering 0 #Disable this (set to 0) for improved graphics (can be slow in some machines)
+frameRate 60 #Number of frames displayed every second (default is 60)
+saveMovieFrames 1 #Save a screenshot of every frame for creating a movie
+saveTrialScrShots 0 #Save a single screenshot at the end of each trial
+randomSeed 11 #Pseudo rand. num. gen. initial state
+pxPerDeg 51.44
+#photoSqSidePx 12 #Side length of square for photo cell measurement, in pixels
+
+###ALL STIMULI###
+trialLenSec 1.25 #Trial length (stimulus presentation), in seconds.
+preStimLenSec 1. #Pre-stimulus interval (for best results should be at least 1 sec)
+postStimLenSec .25 #Post-stimulus interval. Note: Total time spent per trial is given by preStimLenSec + trialLenSec +  postStimLenSec
+
+nTrialBlocks 1 #Number of blocks of trials (i.e., repetitions of each combination of parameters)
+
+nDirs 8 #Number of principal directions (evenly divided around 360 degrees)
+dirDegShift 0
+tempFreq 4 #Temporal frequency (cycles/s), can choose multiple
+nFadeFrames 0 #Sets number of frames used for fade-in/out transitions (use 0 for no fade)
+
+eyeJitter 0
+#jitterFile jitter1
+
+useMask 0 #Set to 1 to enable mask for all stimuli
+
+movFramesDir doublepol-eqbg-multidirs-seed11-marmoset-2blocks
+
+#journal of vision schwarts simoncelli pillow covariance
+#baden euller nature chirp paper; laura busse
+
+###FLOW STIMULI###
+useFlows 1 #Whether to display flows
+nMultiFlows 1 1 2 2 2 2 1 1 2 2 2 2 #
+multiNames -1dotD1 +1dotD1 +-1dotD1 -+1dotD1 +-1dotD1opp -+1dotD1opp -3dotD1 +3dotD1 +-3dotD1 -+3dotD1 ++1dotD1opp --1dotD1opp
+nDots 1 1 1 1 1 1 1 1 1 1 3 3 3 3 3 3 1 1 1 1 #Number of dots used in the flow elements, can choose multiple
+dotDirDegShifts 0 ; 0 ; 0 0 ; 0 0 ; 0 180 ; 0 180 ; 0 ; 0 ; 0 0 ; 0 0 ; 0 180 ; 0 180 #main dir of each transp flow, in degrees, relative to global dir
+dotTempFreqs 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 #
+
+dotFgVal 8 ; 248 ; 248 8 ; 8 248 ; 248 8 ; 8 248 ; 8 ; 248 ; 248 8 ; 8 248 ; 248 248 ; 8 8 #Grayscale value for foreground (dots) [0-255], multiple
+->dotBgVal 128 128 128 128 128 128 128 128 128 128 128 128 #Grayscale value for background (-1 for luminance = 128)
+->dotInterVal 128 128 128 128 128 128 128 128 128 128 128 128 #Grayscale value of interstimulus screen (use -1 for avg screen luminance of the stimulus)
+
+dotDiamDeg 1 ; 1 ; 1 1 ; 1 1 ; 1 1 ; 1 1 ; 1 ; 1 ; 1 1 ; 1 1 ; 1 1 ; 1 1 #Diameter of single dots (degs), multiple -- determines diams for other nDots (preserving const. area)
+->dotSpacing 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 #avg spacing between flow element centers (in multiples of dotDiamDeg), must set a val for each dotDiamDeg used above
+
+
+rigidTrans 0 #Set to 1 for a rigid translation of the flow elements, i.e., no "jitter" -- no motion components other than main direction of motion (constant parallel flow field and no separation force during trial)
+flickFlows 0 #
+sepWeight 1.5 #Ratio between repulsion force between elts and the flow field force -- should be at least 1.5 for best results, and might need some adjustment for different dot sizes
+maxForce 0.04
+tileSize 2. #Tile size of the underlying vector field, in multiples of 
+dirStd 0.09 #Std. dev. of the direction distribution of the underlying flow field
+posStd 0.1 #Std. dev. of initial position of dots on screen, as a fraction of dotSpacing
+equalArea 1 #Whether to adjust the diameter of patterns with nDots > 1 so as to preserve the same total area as that of single dots -- default: yes (1)
+fixRandState 0 #Set to 1 to make identical all trials of the same flow variation (fixes the initial dot positions and flow field)
+sameFlows 1
+sameIndivFlows 0
+
+
+###GRATINGS STIMULI###
+useGratings 1 #Whether to display square-wave gratings
+gratWidthDeg 1 #Width of grating bars, in degrees of visual angle, i.e. 1/(2*spat.freq.)
+randGratPhase 0 #Set to 1 to enable random initial phase in each trial
+gratFgVal 248 #Grayscale value of one half of the bars ("foreground") [0-255], can choose multiple
+->gratBgVal 8 #Grayscale value of the other half of the bars ("background")
+->gratInterVal 128 #Grayscale value of interstimulus screen (use -1 for avg screen luminance of the stimulus)
+
+#(12 + 1) stims x 8 dirs = 13 x 8 = 104 (x 2s) = 208 s

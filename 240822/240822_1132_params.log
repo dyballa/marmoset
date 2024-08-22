@@ -1,0 +1,51 @@
+FlowStims 2.2
+scrWidthPx 2560
+scrHeightPx 1440
+monitor 1
+fullScreen false
+fastRendering false
+frameRate 60
+saveMovieFrames true
+saveTrialScrShots false
+scrWidthCm 59.6
+scrDistCm 28.69
+randomSeed 11
+trialLenSec 1.25
+preStimLenSec 1.0
+postStimLenSec 0.25
+nTrialBlocks 1
+pxPerDeg 27.77
+nDirs 8
+dirDegShift 0
+tempFreq 4
+nFadeFrames 0
+eyeJitter false
+useMask false
+useFlows true
+nMultiFlows 1 1 2 2 2 2 1 1 2 2 2 2
+multiNames -1dotD1 +1dotD1 +-1dotD1 -+1dotD1 +-1dotD1opp -+1dotD1opp -3dotD1 +3dotD1 +-3dotD1 -+3dotD1 ++1dotD1opp --1dotD1opp
+nDots 1 1 1 1 1 1 1 1 1 1 3 3 3 3 3 3 1 1 1 1
+dotDirDegShifts 0 ; 0 ; 0 0 ; 0 0 ; 0 180 ; 0 180 ; 0 ; 0 ; 0 0 ; 0 0 ; 0 180 ; 0 180
+dotTempFreqs 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4
+dotFgVal 8 ; 248 ; 248 8 ; 8 248 ; 248 8 ; 8 248 ; 8 ; 248 ; 248 8 ; 8 248 ; 248 248 ; 8 8
+->dotBgVal 128 128 128 128 128 128 128 128 128 128 128 128
+->dotInterVal 128 128 128 128 128 128 128 128 128 128 128 128
+dotDiamDeg 1 ; 1 ; 1 1 ; 1 1 ; 1 1 ; 1 1 ; 1 ; 1 ; 1 1 ; 1 1 ; 1 1 ; 1 1
+->dotSpacing 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+rigidTrans 0
+flickFlows 0
+sepWeight 1.5
+maxForce 0.04
+tileSize 2.0
+dirStd 0.09
+posStd 0.1
+equalArea true
+fixRandState false
+sameFlows true
+sameIndivFlows false
+useGratings true
+gratWidthDeg 1
+randGratPhase false
+gratFgVal 248
+->gratBgVal 8
+->gratInterVal 128
