@@ -1,0 +1,43 @@
+FlowStims 2.2
+scrWidthPx 2560
+scrHeightPx 1440
+fullScreen false
+fastRendering false
+frameRate 60
+saveMovieFrames true
+antiAlias true
+saveTrialScrShots false
+scrWidthCm 59.6
+scrDistCm 62.0
+randomSeed 19
+trialLenSec 1.25
+preStimLenSec 1.0
+postStimLenSec 0.25
+nTrialBlocks 1
+pxPerDeg 49.86
+nDirs 8
+tempFreq 4
+nFadeFrames 0
+useMask false
+useFlows true
+nDots 3
+dotFgVal 8 248
+->dotBgVal 128 128
+->dotInterVal 128 128
+dotDiamDeg 0.4 0.2 0.1 0.05
+->dotSpacing 3 3 3 3
+rigidTrans false
+sepWeight 1.5
+maxForce 0.04
+tileSize 2.0
+dirStd 0.09
+posStd 0.1
+equalArea false
+fixRandState false
+sameFlows true
+useGratings true
+gratWidthDeg 0.4 0.2 0.1 0.05
+randGratPhase false
+gratFgVal 68
+->gratBgVal 188
+->gratInterVal 128

@@ -1,0 +1,66 @@
+FlowStims 2.2 # branch ucsf-dirs
+
+###SETUP###
+scrWidthPx 2560 
+scrHeightPx 1440
+scrWidthCm 59.6
+scrDistCm 62.0
+
+fullScreen 0 #If set to 0, disables fullscreen mode (for running it in a smaller window)
+fastRendering 0 #Disable this (set to 0) for improved graphics (may be slow in some machines though)
+frameRate 60
+saveMovieFrames 1
+antiAlias 1
+saveTrialScrShots 0
+randomSeed 19 #Pseudo rand. num. gen. initial state
+pxPerDeg 49.86
+
+
+###ALL STIMULI###
+trialLenSec 1.25 #Trial length (stimulus presentation), in seconds.
+preStimLenSec 1.0 #Pre-stimulus interval (for best results should be at least 1 sec)
+postStimLenSec 0.25 #Post-stimulus interval. Note: Total time spent per trial is given by preStimLenSec + trialLenSec +  postStimLenSec
+
+nTrialBlocks 1 #Number of blocks of trials (i.e., repetitions of each combination of parameters)
+
+nDirs 8 #Number of principal directions (evenly divided around 360 degrees)
+tempFreq 4 #Temporal frequency (cycles/s), can choose multiple
+nFadeFrames 0 #Sets number of frames used for fade-in/out transitions (0 for no fade)
+
+useMask 0
+
+movFramesDir eqbg-seed19-2blocks-sameflows-lgn
+
+###FLOW STIMULI###
+useFlows 1 #Whether to display flows
+nDots 3 #Number of dots used in the flow elements, can choose multiple
+
+dotFgVal 8 248 #Grayscale value for foreground (dots) [0-255], multiple
+->dotBgVal 128 128 #Grayscale value for background
+->dotInterVal 128 128 #Grayscale value of interstimulus screen (use -1 for avg screen luminance of the stimulus)
+
+dotDiamDeg 0.4 0.2 0.1 0.05 #Diameter of single dots (degs), multiple -- determines diams for other nDots (preserving const. area)
+->dotSpacing 3 3 3 3 #avg spacing between flow element centers (in multiples of dotDiamDeg), must set a val for each dotDiamDeg used above
+#->dotSpatFreq 0.7 1. #Optional: if provided, will be used to compute accurate temp. freq.
+
+rigidTrans 0 #Set to 1 for a rigid translation of the flow elements, i.e., no "jitter" -- no motion components other than main direction of motion (constant parallel flow field and no separation force during trial)
+sepWeight 1.5 #Ratio between repulsion force between elts and the flow field force -- should be at least 1.5 for best results, and might need some adjustment for different dot sizes
+maxForce 0.04
+tileSize 2. #Tile size of the underlying vector field, in multiples of 
+dirStd 0.09 #Std. dev. of the direction distribution of the underlying flow field
+posStd 0.1 #Std. dev. of initial position of dots on screen, as a fraction of dotSpacing
+equalArea 0 #Whether to adjust the diameter of patterns with nDots > 1 so as to preserve the same total area as that of single dots -- default: yes (1)
+fixRandState 0 #Set to 1 to make identical all trials of the same flow variation (fixes the initial dot positions and flow field)
+sameFlows 1
+
+###GRATINGS STIMULI###
+useGratings 1 #Whether to display square-wave gratings
+gratWidthDeg 0.4 0.2 0.1 0.05 #Width of grating bars, in degrees of visual angle, i.e. 1/(2*spat.freq.)
+randGratPhase 0 #Set to 1 to enable random initial phase in each trial
+gratFgVal 68 #Grayscale value of one half of the bars ("foreground") [0-255], can choose multiple
+->gratBgVal 188 #Grayscale value of the other half of the bars ("background")
+->gratInterVal 128 #Grayscale value of interstimulus screen (use -1 for avg screen luminance of the stimulus)
+
+
+# 2*atan(.5*scrWidthCm/scrDistCm)*180/PI;
+# 2s * 60fps * 8 dirs x (1 ndots x 4 sizes x 2 colors + 4)
